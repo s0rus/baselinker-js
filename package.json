@@ -1,0 +1,50 @@
+{
+  "name": "baselinker-js",
+  "version": "1.0.0",
+  "module": "index.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "bun test --preload ./test/test-setup.ts",
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
+    "lint": "eslint ./src",
+    "ci": "bun run clean && bun run test && bun run build && bun run format && bun run lint && bun run check-exports",
+    "prepublishOnly": "bun run ci",
+    "local-release": "changeset version && changeset publish"
+  },
+  "description": "Fully typed, zero-dependency and lightweight client for Baselinker",
+  "keywords": [
+    "baselinker",
+    "baselinker-js",
+    "baselinker client"
+  ],
+  "homepage": "https://github.com/s0rus/baselinker-js",
+  "bugs": "https://github.com/s0rus/baselinker-js/issues",
+  "author": "Piotr Mól <piotrmolkontakt@gmail.com> (https://devsor.us)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s0rus/baselinker-js.git"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.17.4",
+    "@changesets/cli": "^2.28.1",
+    "@eslint/js": "^9.21.0",
+    "@types/bun": "latest",
+    "eslint": "^9.21.0",
+    "globals": "^15.15.0",
+    "prettier": "^3.5.2",
+    "typescript-eslint": "^8.25.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
