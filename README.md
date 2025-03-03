@@ -1,4 +1,4 @@
-![baselinker-js](.github/assets/banner.jpg 'baselinker-js')
+![baselinker-js](.github/assets/banner.jpg "baselinker-js")
 
 ## Installation
 
@@ -29,7 +29,7 @@ Define a baselinker client, and provide your BaseLinker API key:
 import { createBaselinkerClient } from "baselinker-js";
 
 const bl = createBaselinkerClient({
-    apiKey: "YOUR_API_KEY",
+  apiKey: "YOUR_API_KEY",
 });
 
 export { bl };
@@ -39,17 +39,17 @@ Now you can use the client to interact with the BaseLinker API:
 
 ```typescript
 try {
-    const query = await client.products.getInventories();
+  const query = await client.products.getInventories();
 
-    if (query.status === "ERROR") {
-        throw new Error(query.error_message);
-    }
+  if (query.status === "ERROR") {
+    throw new Error(query.error_message);
+  }
 
-    query.inventories.forEach((inventory) => {
-        console.log(inventory);
-    });
+  query.inventories.forEach((inventory) => {
+    console.log(inventory);
+  });
 } catch (error) {
-    console.error(error);
+  console.error(error);
 }
 ```
 
@@ -57,8 +57,8 @@ try {
 
 Entire structure and types of the client are based on the [BaseLinker API documentation](https://api.baselinker.com/).
 
-> Note: The client is updated up to **2025-02-19** version of the API.  
+> Note: The client is updated up to **2025-02-19** version of the API.
 >
-> Please, verify if the client is up to date in the documentation.  
+> Please, verify if the client is up to date in the documentation.
 >
 > You can also find the official [BaseLinker API changelog](https://api.baselinker.com/?changelog) to check for any changes.
