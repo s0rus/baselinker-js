@@ -76,6 +76,7 @@ describe("Product category", () => {
 
   test("updateInventoryPriceGroup - missing required parameters", async () => {
     mockFetch.mockReturnValueOnce(
+      // @ts-expect-error - testing missing required parameters
       mockUpdateInventoryPriceGroup({
         name: "test-category",
         currency: "USD",
@@ -108,6 +109,7 @@ describe("Product category", () => {
   });
 
   test("deleteInventoryPriceGroup - missing required parameters", async () => {
+    // @ts-expect-error - testing missing required parameters
     mockFetch.mockReturnValueOnce(mockDeleteInventoryPriceGroup({}));
 
     // @ts-expect-error - testing missing required parameters

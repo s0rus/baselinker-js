@@ -1,7 +1,7 @@
-import { ProductCategory } from "../../src/types/products";
+import type { ProductsCategory } from "../../src/internal/products.js";
 
 export function mockAddInventoryPriceGroup(
-  params: ProductCategory["addInventoryPriceGroup"]["params"],
+  params: ProductsCategory["addInventoryPriceGroup"]["params"],
 ) {
   if (params.name && params.currency && params.description) {
     return Promise.resolve(
@@ -26,7 +26,7 @@ export function mockAddInventoryPriceGroup(
 }
 
 export function mockUpdateInventoryPriceGroup(
-  params: ProductCategory["updateInventoryPriceGroup"]["params"],
+  params: ProductsCategory["updateInventoryPriceGroup"]["params"],
 ) {
   if (
     params.price_group_id &&
@@ -56,7 +56,7 @@ export function mockUpdateInventoryPriceGroup(
 }
 
 export function mockDeleteInventoryPriceGroup(
-  params: ProductCategory["deleteInventoryPriceGroup"]["params"],
+  params: ProductsCategory["deleteInventoryPriceGroup"]["params"],
 ) {
   if (params.price_group_id) {
     return Promise.resolve(

@@ -1,5 +1,7 @@
 import {
+  BASELINKER_API_URL,
   VALID_CATEGORIES,
+  VALID_METHODS,
   type BaselinkerFetchError,
   type BaselinkerFetchSuccess,
   type Category,
@@ -18,7 +20,8 @@ type BaselinkerClient = {
   [C in Category]: Prettify<MethodsFor<C>>;
 };
 
-/** Creates a type-safe BaseLinker API client
+/**
+ * Creates a type-safe BaseLinker API client
  * @param apiKey - BaseLinker API key needed to authenticate requests
  * @param debug - Enables debug mode, which logs API requests and responses
  * @returns BaseLinker API client
@@ -30,7 +33,6 @@ type BaselinkerClient = {
  * const bl = createBaselinkerClient({
  *   apiKey: "YOUR_API_KEY",
  * });
- *
  * ```
  */
 export function createBaselinkerClient({
@@ -40,8 +42,6 @@ export function createBaselinkerClient({
   if (!apiKey) {
     throw new Error("Baselinker API key is required");
   }
-
-  const BASE_URL = "https://api.baselinker.com/connector.php";
 
   return new Proxy({} as BaselinkerClient, {
     get: (_, category: Category) => {
@@ -55,6 +55,12 @@ export function createBaselinkerClient({
         {},
         {
           get: (_, method: MethodsOf<typeof category>) => {
+            if (!VALID_METHODS[category].includes(method)) {
+              throw new TypeError(
+                `Cannot read properties of undefined (reading '${method}')`,
+              );
+            }
+
             return async (params: unknown) => {
               if (debug) {
                 console.log(
@@ -63,7 +69,7 @@ export function createBaselinkerClient({
                 );
               }
 
-              const response = await fetch(BASE_URL, {
+              const response = await fetch(BASELINKER_API_URL, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/x-www-form-urlencoded",
