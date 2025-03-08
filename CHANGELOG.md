@@ -1,5 +1,11 @@
 # baselinker-js
 
+## 1.0.1
+
+### Patch Changes
+
+- 0173613: initial release
+
 ## 2.0.0
 
 ### Major Changes
