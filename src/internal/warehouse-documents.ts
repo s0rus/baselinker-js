@@ -5,7 +5,7 @@ export type WarehouseDocumentsCategory = {
    * The method allows you to retrieve a list of inventory documents from BaseLinker
    */
   getInventoryDocuments: {
-    params: {
+    params?: {
       /**
        * Limit results to documents with a specific inventory document ID
        */
@@ -130,11 +130,11 @@ export type WarehouseDocumentsCategory = {
    * The method allows you to retrieve document items for specific or for all inventory documents in BaseLinker
    */
   getInventoryDocumentItems: {
-    params: {
+    params?: {
       /**
        * Inventory document ID
        */
-      document_id: number;
+      document_id?: number;
       /**
        * Page number of the results
        * BaseLinker API returns maximum of 100 results per page

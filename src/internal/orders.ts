@@ -441,7 +441,7 @@ export type OrdersCategory = {
    * Maximum 100 orders can be retrieved at a time
    */
   getOrders: {
-    params: {
+    params?: {
       /**
        * Order ID
        * When provided, only the order with the given ID is retrieved
@@ -1011,7 +1011,7 @@ export type OrdersCategory = {
    * Maximum of 100 invoces can be retrieved at a time
    */
   getInvoices: {
-    params: {
+    params?: {
       /**
        * Filter by invoice ID
        */
@@ -1462,7 +1462,7 @@ export type OrdersCategory = {
    * If any receipts appear in response, they should be confirmed using the `setOrderReceipt` method after pringting to disappear from the waiting list
    */
   getNewReceipts: {
-    params: {
+    params?: {
       /**
        * Filter by numbering series ID
        *
@@ -1553,7 +1553,7 @@ export type OrdersCategory = {
    * To retrieve a list of new receipts, use the `getNewReceipts` method
    */
   getReceipt: {
-    params: {
+    params?: {
       /**
        * Receipt ID, not required if `order_id` is provided
        */

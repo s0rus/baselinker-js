@@ -191,13 +191,25 @@ export type MethodsFor<C extends Category> = {
         | Prettify<BaselinkerFetchSuccess<ResponseOf<C, M>>>
         | Prettify<BaselinkerFetchError>
       >
-    : (
-        params: MethodsByCategory[C][M] extends { params: infer P } ? P : never,
-        options?: FetchOptions,
-      ) => Promise<
-        | Prettify<BaselinkerFetchSuccess<ResponseOf<C, M>>>
-        | Prettify<BaselinkerFetchError>
-      >;
+    : HasOptionalParams<C, M> extends true
+      ? (
+          params?: MethodsByCategory[C][M] extends { params?: infer P }
+            ? P
+            : never,
+          options?: FetchOptions,
+        ) => Promise<
+          | Prettify<BaselinkerFetchSuccess<ResponseOf<C, M>>>
+          | Prettify<BaselinkerFetchError>
+        >
+      : (
+          params: MethodsByCategory[C][M] extends { params: infer P }
+            ? P
+            : never,
+          options?: FetchOptions,
+        ) => Promise<
+          | Prettify<BaselinkerFetchSuccess<ResponseOf<C, M>>>
+          | Prettify<BaselinkerFetchError>
+        >;
 };
 
 export type FetchOptions = Omit<RequestInit, "method" | "body"> & {
@@ -230,6 +242,11 @@ type HasVoidParams<
   C extends Category,
   M extends MethodsOf<C>,
 > = MethodsByCategory[C][M] extends { params: void } ? true : false;
+
+type HasOptionalParams<
+  C extends Category,
+  M extends MethodsOf<C>,
+> = MethodsByCategory[C][M] extends { params?: unknown } ? true : false;
 
 export type Prettify<T> = {
   [K in keyof T]: T[K];

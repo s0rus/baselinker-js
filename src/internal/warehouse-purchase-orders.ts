@@ -8,7 +8,7 @@ export type WarehousePurchaseOrdersCategory = {
    * The method allows you to retrieve a list of purchase orders from BaseLinker storage
    */
   getInventoryPurchaseOrders: {
-    params: {
+    params?: {
       /**
        * Filter purchase orders by inventory ID
        * The list of IDs can be retrieved using the `getInventories` method
@@ -227,7 +227,7 @@ export type WarehousePurchaseOrdersCategory = {
    * The method allows you to retrieve a list of purchase order document series from BaseLinker storage
    */
   getInventoryPurchaseOrderSeries: {
-    params: {
+    params?: {
       /**
        * Filter purchase order series by warehouse ID
        */

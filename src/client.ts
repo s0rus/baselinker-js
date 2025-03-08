@@ -72,6 +72,7 @@ export function createBaselinkerClient({
               if (args.length === 0) {
                 params = {};
               } else if (isFetchOptions(args[0])) {
+                params = {};
                 options = args[0] as FetchOptions;
               } else {
                 params = args[0];

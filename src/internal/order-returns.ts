@@ -334,7 +334,7 @@ export type OrderReturnsCategory = {
    * Maximum 100 returns can be retrieved at a time
    */
   getOrderReturns: {
-    params: {
+    params?: {
       /**
        * ID of the order the return was created from
        */

@@ -63,12 +63,11 @@ Entire structure and types of the client methods are based on the [BaseLinker AP
 
 The following functions have been added that aren't in the BaseLinker API for more explicit code:
 
-| Function | Description |
-| --- | --- |
-| `updateInventoryPriceGroup` | Works exactly the same as `addInventoryPriceGroup` but is more explicit in naming and expects a `price_group_id` parameter.|
-| `updateInventoryWarehouse` | Works exactly the same as `addInventoryWarehouse` but is more explicit in naming and expects a `warehouse_id` parameter.|
-| `updateInventory` | Works exactly the same as `addInventory` but is more explicit in naming and expects an `inventory_id` parameter.|
-| `updateInventoryCategory` | Works exactly the same as `addInventoryCategory` but is more explicit in naming and expects a `category_id` parameter.|
-| `updateInventoryManufacturer` | Works exactly the same as `addInventoryManufacturer` but is more explicit in naming and expects a `manufacturer_id` parameter.|
-| `updateInventoryProduct` | Works exactly the same as `addInventoryProduct` but is more explicit in naming and expects a `product_id` parameter.|
-
+| Function                      | Description                                                                                                                    |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `updateInventoryPriceGroup`   | Works exactly the same as `addInventoryPriceGroup` but is more explicit in naming and expects a `price_group_id` parameter.    |
+| `updateInventoryWarehouse`    | Works exactly the same as `addInventoryWarehouse` but is more explicit in naming and expects a `warehouse_id` parameter.       |
+| `updateInventory`             | Works exactly the same as `addInventory` but is more explicit in naming and expects an `inventory_id` parameter.               |
+| `updateInventoryCategory`     | Works exactly the same as `addInventoryCategory` but is more explicit in naming and expects a `category_id` parameter.         |
+| `updateInventoryManufacturer` | Works exactly the same as `addInventoryManufacturer` but is more explicit in naming and expects a `manufacturer_id` parameter. |
+| `updateInventoryProduct`      | Works exactly the same as `addInventoryProduct` but is more explicit in naming and expects a `product_id` parameter.           |
