@@ -185,17 +185,46 @@ export type ResponseOf<
 
 export type MethodsFor<C extends Category> = {
   [M in MethodsOf<C>]: HasVoidParams<C, M> extends true
-    ? () => Promise<
+    ? (
+        options?: FetchOptions,
+      ) => Promise<
         | Prettify<BaselinkerFetchSuccess<ResponseOf<C, M>>>
         | Prettify<BaselinkerFetchError>
       >
     : (
         params: MethodsByCategory[C][M] extends { params: infer P } ? P : never,
+        options?: FetchOptions,
       ) => Promise<
         | Prettify<BaselinkerFetchSuccess<ResponseOf<C, M>>>
         | Prettify<BaselinkerFetchError>
       >;
 };
+
+export type FetchOptions = Omit<RequestInit, "method" | "body"> & {
+  headers?: Omit<Record<string, string>, "Content-Type" | "X-BLToken">;
+};
+
+export function isFetchOptions(obj: unknown): boolean {
+  if (!obj || typeof obj !== "object") {
+    return false;
+  }
+
+  const fetchOptionProperties: Array<keyof FetchOptions> = [
+    "cache",
+    "credentials",
+    "headers",
+    "integrity",
+    "keepalive",
+    "mode",
+    "redirect",
+    "referrer",
+    "referrerPolicy",
+    "signal",
+    "window",
+  ];
+
+  return fetchOptionProperties.some((prop) => prop in (obj as object));
+}
 
 type HasVoidParams<
   C extends Category,

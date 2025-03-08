@@ -1,10 +1,12 @@
 import {
+  isFetchOptions,
   BASELINKER_API_URL,
   VALID_CATEGORIES,
   VALID_METHODS,
   type BaselinkerFetchError,
   type BaselinkerFetchSuccess,
   type Category,
+  type FetchOptions,
   type MethodsFor,
   type MethodsOf,
   type Prettify,
@@ -61,7 +63,23 @@ export function createBaselinkerClient({
               );
             }
 
-            return async (params: unknown) => {
+            return async (...args: unknown[]) => {
+              // NOTE: We need to swap params and options when method has no params
+              // It seems kind of brittle, maybe there is a better way to do this?
+              let params: unknown;
+              let options: FetchOptions | undefined = undefined;
+
+              if (args.length === 0) {
+                params = {};
+              } else if (isFetchOptions(args[0])) {
+                options = args[0] as FetchOptions;
+              } else {
+                params = args[0];
+                if (args.length > 1 && isFetchOptions(args[1])) {
+                  options = args[1] as FetchOptions;
+                }
+              }
+
               if (debug) {
                 console.log(
                   `Baselinker API Request - Category: ${String(category)}, Method: ${String(method)}, Params:`,
@@ -69,16 +87,20 @@ export function createBaselinkerClient({
                 );
               }
 
-              const response = await fetch(BASELINKER_API_URL, {
+              const finalOptions: RequestInit = {
+                ...options,
                 method: "POST",
                 headers: {
+                  ...options?.headers,
                   "Content-Type": "application/x-www-form-urlencoded",
                   "X-BLToken": apiKey,
                 },
                 body: `method=${method}&parameters=${encodeURIComponent(
                   JSON.stringify(params || {}),
                 )}`,
-              });
+              };
+
+              const response = await fetch(BASELINKER_API_URL, finalOptions);
 
               if (!response.ok) {
                 throw new Error(

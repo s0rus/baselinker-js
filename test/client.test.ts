@@ -55,4 +55,121 @@ describe("Baselinker client", () => {
       }),
     );
   });
+
+  it("should swap params and options when method has no params", async () => {
+    mockFetch.mockReset();
+
+    mockFetch.mockReturnValueOnce(
+      Promise.resolve(
+        new Response(
+          JSON.stringify({
+            status: "SUCCESS",
+            tags: [],
+          }),
+        ),
+      ),
+    );
+
+    await bl.products.getInventoryTags({
+      cache: "no-cache",
+      credentials: "include",
+    });
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+    expect(mockFetch).toHaveBeenCalledWith(
+      BASELINKER_API_URL,
+      expect.objectContaining({
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "X-BLToken": "bl-api-key",
+        },
+        body: expect.stringContaining("method=getInventoryTags"),
+        cache: "no-cache",
+        credentials: "include",
+      }),
+    );
+  });
+
+  it("should handle fetch options provided by the user", async () => {
+    mockFetch.mockReset();
+
+    mockFetch.mockReturnValueOnce(
+      Promise.resolve(
+        new Response(
+          JSON.stringify({
+            status: "SUCCESS",
+            documents: [],
+          }),
+        ),
+      ),
+    );
+
+    await bl.warehouseDocuments.getInventoryDocuments(
+      {
+        page: 1,
+      },
+      {
+        cache: "no-cache",
+        credentials: "include",
+      },
+    );
+
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+    expect(mockFetch).toHaveBeenCalledWith(
+      BASELINKER_API_URL,
+      expect.objectContaining({
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "X-BLToken": "bl-api-key",
+        },
+        body: expect.stringContaining("method=getInventoryDocuments"),
+        cache: "no-cache",
+        credentials: "include",
+      }),
+    );
+  });
+
+  it("should prevent from overriding specific baselinker headers and params", async () => {
+    mockFetch.mockReset();
+
+    mockFetch.mockReturnValueOnce(
+      Promise.resolve(
+        new Response(
+          JSON.stringify({
+            status: "SUCCESS",
+            documents: [],
+          }),
+        ),
+      ),
+    );
+
+    await bl.warehouseDocuments.getInventoryDocuments(
+      {
+        page: 1,
+      },
+      {
+        // @ts-expect-error - testing wrong header
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "X-BLToken": "broken-token",
+        },
+        body: "broken-body",
+      },
+    );
+
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+    expect(mockFetch).toHaveBeenCalledWith(
+      BASELINKER_API_URL,
+      expect.objectContaining({
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "X-BLToken": "bl-api-key",
+        },
+        body: expect.stringContaining("method=getInventoryDocuments"),
+      }),
+    );
+  });
 });
