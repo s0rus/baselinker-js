@@ -14,19 +14,19 @@ export type ExternalStoragesCategory = {
       /**
        * Array of storages
        */
-      storages: Array<{
+      readonly storages: Array<{
         /**
          * Storage ID in format "[type:shop|warehouse]_[id:int]" (e.g. "shop_2445")
          */
-        storage_id: ExternalStorageCode;
+        readonly storage_id: ExternalStorageCode;
         /**
          * Storage name
          */
-        name: string;
+        readonly name: string;
         /**
          * Array of methods supported by the storage
          */
-        methods: Array<string>;
+        readonly methods: Array<string>;
       }>;
     };
   };
@@ -45,23 +45,23 @@ export type ExternalStoragesCategory = {
       /**
        * Storage ID in format "[type:shop|warehouse]_[id:int]" (e.g. "shop_2445")
        */
-      storage_id: ExternalStorageCode;
+      readonly storage_id: ExternalStorageCode;
       /**
        * Array of categories
        */
-      categories: Array<{
+      readonly categories: Array<{
         /**
          * Category ID
          */
-        category_id: number;
+        readonly category_id: number;
         /**
          * Category name
          */
-        name: string;
+        readonly name: string;
         /**
          * Parent category ID
          */
-        parent_id: number;
+        readonly parent_id: number;
       }>;
     };
   };
@@ -80,49 +80,49 @@ export type ExternalStoragesCategory = {
       /**
        * Array of product IDs to retrieve
        */
-      procucts: Array<number>;
+      products: Array<number>;
     };
     response: {
       /**
        * Storage ID in format "[type:shop|warehouse]_[id:int]" (e.g. "shop_2445")
        */
-      storage_id: ExternalStorageCode;
+      readonly storage_id: ExternalStorageCode;
       /**
        * Array of products
        */
-      products: Array<{
+      readonly products: Array<{
         /**
          * Product ID
          */
-        product_id: number;
+        readonly product_id: number;
         /**
          * Product EAN number
          */
-        ean: string;
+        readonly ean: string;
         /**
          * Product SKU number
          */
-        sku: string;
+        readonly sku: string;
         /**
          * Product name
          */
-        name: string;
+        readonly name: string;
         /**
          * Product quantity
          */
-        quantity: number;
+        readonly quantity: number;
         /**
          * Product net price
          */
-        price_netto: number;
+        readonly price_netto: number;
         /**
          * Product gross price
          */
-        price_brutto: number;
+        readonly price_brutto: number;
         /**
          * Product net wholesale price
          */
-        price_wholesale_netto: number;
+        readonly price_wholesale_netto: number;
         /**
          * Product tax rate
          * Value should be between 0 and 100 or:
@@ -130,71 +130,71 @@ export type ExternalStoragesCategory = {
          *  - -0.02 for NP annotation
          *  - -0.03 for OO VAT reverse charge
          */
-        tax_rate: number;
+        readonly tax_rate: number;
         /**
          * Product weight in kilograms
          */
-        weight: number;
+        readonly weight: number;
         /**
          * Product description
          */
-        description: string;
+        readonly description: string;
         /**
          * Additional product description
          */
-        description_extra1: string;
+        readonly description_extra1: string;
         /**
          * Additional product description
          */
-        description_extra2: string;
+        readonly description_extra2: string;
         /**
          * Manufacturer name
          */
-        man_name: string;
+        readonly man_name: string;
         /**
          * Full manufacturer logo address
          */
-        man_image: string;
+        readonly man_image: string;
         /**
          * Product category ID
          */
-        category_id: number;
+        readonly category_id: number;
         /**
          * Array of product images
          */
-        images: Array<string>;
+        readonly images: Array<string>;
         /**
          * Object of product features where key is the feature name and value is the feature value
          */
-        features: Record<string, string>;
+        readonly features: Record<string, string>;
         /**
          * Array of product variants
          */
-        variants: Array<{
+        readonly variants: Array<{
           /**
            * Variant ID
            */
-          variant_id: number;
+          readonly variant_id: number;
           /**
            * Variant name
            */
-          name: string;
+          readonly name: string;
           /**
            * Variant price
            */
-          price: number;
+          readonly price: number;
           /**
            * Variant quantity
            */
-          quantity: number;
+          readonly quantity: number;
           /**
            * Variant SKU number
            */
-          sku: string;
+          readonly sku: string;
           /**
            * Variant EAN number
            */
-          ean: string;
+          readonly ean: string;
         }>;
       }>;
     };
@@ -272,35 +272,35 @@ export type ExternalStoragesCategory = {
       /**
        * Storage ID in format "[type:shop|warehouse]_[id:int]" (e.g. "shop_2445")
        */
-      storage_id: ExternalStorageCode;
+      readonly storage_id: ExternalStorageCode;
       /**
        * Array of products
        */
-      products: Array<{
+      readonly products: Array<{
         /**
          * Product ID
          */
-        product_id: number;
+        readonly product_id: number;
         /**
          * Product EAN number
          */
-        ean: string;
+        readonly ean: string;
         /**
          * Product SKU number
          */
-        sku: string;
+        readonly sku: string;
         /**
          * Product name
          */
-        name: string;
+        readonly name: string;
         /**
          * Product quantity
          */
-        quantity: number;
+        readonly quantity: number;
         /**
          * Product gross price
          */
-        price_brutto: number;
+        readonly price_brutto: number;
       }>;
     };
   };
@@ -324,31 +324,31 @@ export type ExternalStoragesCategory = {
       /**
        * Storage ID in format "[type:shop|warehouse]_[id:int]" (e.g. "shop_2445")
        */
-      storage_id: ExternalStorageCode;
+      readonly storage_id: ExternalStorageCode;
       /**
        * Array of products
        */
-      products: Array<{
+      readonly products: Array<{
         /**
          * Product ID
          */
-        product_id: number;
+        readonly product_id: number;
         /**
          * Product quantity
          */
-        quantity: number;
+        readonly quantity: number;
         /**
          * Array of product variants
          */
-        variants: Array<{
+        readonly variants: Array<{
           /**
            * Variant ID
            */
-          variant_id: number;
+          readonly variant_id: number;
           /**
            * Variant quantity
            */
-          quantity: number;
+          readonly quantity: number;
         }>;
       }>;
     };
@@ -373,31 +373,31 @@ export type ExternalStoragesCategory = {
       /**
        * Storage ID in format "[type:shop|warehouse]_[id:int]" (e.g. "shop_2445")
        */
-      storage_id: ExternalStorageCode;
+      readonly storage_id: ExternalStorageCode;
       /**
        * Array of products
        */
-      products: Array<{
+      readonly products: Array<{
         /**
          * Product ID
          */
-        product_id: number;
+        readonly product_id: number;
         /**
          * Product price
          */
-        price: number;
+        readonly price: number;
         /**
          * Array of product variants
          */
-        variants: Array<{
+        readonly variants: Array<{
           /**
            * Variant ID
            */
-          variant_id: number;
+          readonly variant_id: number;
           /**
            * Variant price
            */
-          price: number;
+          readonly price: number;
         }>;
       }>;
     };
@@ -429,17 +429,17 @@ export type ExternalStoragesCategory = {
        *  ]
        *  ```
        */
-      products: Array<[string, number, number]>;
+      products: Array<[number, number, number]>;
     };
     response: {
       /**
        * Number of received items
        */
-      counter: number;
+      readonly counter: number;
       /**
        * Object containing warnings for product updates
        */
-      warnings: Record<string, string>;
+      readonly warnings: Record<string, string>;
     };
   };
 };

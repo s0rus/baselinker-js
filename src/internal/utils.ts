@@ -5,6 +5,7 @@ import type { OrderReturnsCategory } from "./order-returns.js";
 import type { OrdersCategory } from "./orders.js";
 import type { ProductsCategory } from "./products.js";
 import type { WarehouseDocumentsCategory } from "./warehouse-documents.js";
+import type { WarehousePurchaseOrdersCategory } from "./warehouse-purchase-orders.js";
 
 export type BaselinkerFetchError = {
   status: "ERROR";
@@ -19,6 +20,7 @@ export type BaselinkerFetchSuccess<T> = {
 type MethodsByCategory = {
   products: ProductsCategory;
   warehouseDocuments: WarehouseDocumentsCategory;
+  warehousePurchaseOrders: WarehousePurchaseOrdersCategory;
   orders: OrdersCategory;
   orderReturns: OrderReturnsCategory;
   courierShipments: CourierShipmentsCategory;
@@ -34,6 +36,7 @@ export const VALID_CATEGORIES: Array<keyof MethodsByCategory> = [
   "orderReturns",
   "courierShipments",
   "warehouseDocuments",
+  "warehousePurchaseOrders",
   "baselinkerConnect",
   "externalStorages",
 ];
@@ -120,7 +123,7 @@ export const VALID_METHODS: {
     "setOrderReturnProductFields",
     "deleteOrderReturnProduct",
     "setOrderReturnRefund",
-    "getOrderReturnReasonList",
+    "getOrderReturnReasonsList",
     "setOrderReturnStatus",
     "setOrderReturnStatuses",
     "runOrderReturnMacroTrigger",
@@ -146,6 +149,11 @@ export const VALID_METHODS: {
     "getInventoryDocuments",
     "getInventoryDocumentItems",
     "getInventoryDocumentSeries",
+  ],
+  warehousePurchaseOrders: [
+    "getInventoryPurchaseOrders",
+    "getInventoryPurchaseOrderItems",
+    "getInventoryPurchaseOrderSeries",
   ],
   baselinkerConnect: [
     "getConnectIntegrations",

@@ -46,11 +46,11 @@ export type OrderReturnsCategory = {
       /**
        * Array of return events
        */
-      logs: Array<{
+      readonly logs: Array<{
         /**
          * Event ID
          */
-        id: number;
+        readonlyid: number;
         /**
          * Event type
          *
@@ -68,17 +68,17 @@ export type OrderReturnsCategory = {
          * - 11 - Return item status change
          * - 12 - Return item status change
          */
-        type: OrderReturnLogType;
+        readonly type: OrderReturnLogType;
         // TODO: No idea what to provide here as docs suck.
         /**
          * Additional information about the event based on the event type
          */
-        object_id: number;
+        readonly object_id: number;
         /**
          * Event date
          * Unix timestamp format
          */
-        date: number;
+        readonly date: number;
       }>;
     };
   };
@@ -290,7 +290,7 @@ export type OrderReturnsCategory = {
       /**
        * Added return ID
        */
-      return_id: number;
+      readonly return_id: number;
     };
   };
 
@@ -306,25 +306,25 @@ export type OrderReturnsCategory = {
       /**
        * An array of available extra fields
        */
-      extra_fields: Array<{
+      readonly extra_fields: Array<{
         /**
          * Extra field ID
          */
-        extra_field_id: number;
+        readonly extra_field_id: number;
         /**
          * Extra field name
          */
-        name: string;
+        readonly name: string;
         /**
          * Type of additional field
          * Available values are `text`, `number`, `select`, `checkbox`, `radio`, `date`, `file`
          */
-        editor_type: FieldType;
+        readonly editor_type: FieldType;
         /**
          * An array of values available for a given additional field
          * This field applies only to `select`, `checkbox` and `radio` field types
          */
-        options?: Array<string>;
+        readonly options?: Array<string>;
       }>;
     };
   };
@@ -378,122 +378,121 @@ export type OrderReturnsCategory = {
       /**
        * Array of order returns
        */
-      returns: Array<{
+      readonly returns: Array<{
         /**
          * Return order ID
          */
-        return_id: number;
+        readonly return_id: number;
         /**
          * Order ID from which the return was created
          */
-        order_id: number;
+        readonly order_id: number;
         /**
          * Order ID given by the store
          */
-        shop_order_id: number;
+        readonly shop_order_id: number;
         /**
          * Order ID taken from external source e.g. the order number in the store, or the eBay transaction number
          */
-        external_order_id: string;
+        readonly external_order_id: string;
         /**
          * Reference number from external source
          */
-        reference_number: string;
+        readonly reference_number: string;
         /**
          * Order return source type
          * Available values are:
          *  - "shop" - order created by the shop
          *  - "personal" - order created by the customer
-         *  - "order_return" - order created by the order return system
          *  - "marketplace_code" - e.g. "ebay", "amazon", "ceneo", "emag", "allegro", etc.
          */
-        order_return_source: OrderReturnSource;
+        readonly order_return_source: OrderReturnSource;
         /**
          * Order return source ID (e.g. internal Allegro account ID, internal shop ID, etc.)
          * Unique only in combination with `order_return_source` field
          */
-        order_return_source_id: number;
+        readonly order_return_source_id: number;
         /**
          * Order return status ID
          * List of available order return statuses can be retrieved using the `getOrderReturnStatusList` method
          */
-        status_id: number;
+        readonly status_id: number;
         /**
          * Date of order return creation
          * Unix timestamp format
          */
-        date_add: number;
+        readonly date_add: number;
         /**
          * Date from which the order is in the current order status
          * Unix timestamp format
          */
-        date_in_status: number;
+        readonly date_in_status: number;
         /**
          * Marketplace user login
          */
-        user_login: string;
+        readonly user_login: string;
         /**
          * 3-letter currency symbol e.g. EUR, PLN, USD
          */
-        currency: CurrencyCode;
+        readonly currency: CurrencyCode;
         // TODO: I have no idea what this field is, its of type char(3) and in sample data its given "0.00" ???
         //       Docs suuuuuuuuck.
         /**
          * Flag indicating wether the order return is already refunded
          */
-        refunded: string;
+        readonly refunded: string;
         /**
          * Buyer email address
          */
-        email: string;
+        readonly email: string;
         /**
          * Buyer phone number
          */
-        phone: string;
+        readonly phone: string;
         /**
          * Gross delivery price of a return
          */
-        delivery_price: number;
+        readonly delivery_price: number;
         /**
          * Delivery address - name and surname
          */
-        delivery_fullname: string;
+        readonly delivery_fullname: string;
         /**
          * Delivery address - company
          */
-        delivery_company: string;
+        readonly delivery_company: string;
         /**
          * Delivery address - street and number
          */
-        delivery_address: string;
+        readonly delivery_address: string;
         /**
          * Delivery address - postcode
          */
-        delivery_postcode: string;
+        readonly delivery_postcode: string;
         /**
          * Delivery address - city
          */
-        delivery_city: string;
+        readonly delivery_city: string;
         /**
          * Delivery address - state/province
          */
-        delivery_state: string;
+        readonly delivery_state: string;
         /**
          * Delivery address - country
          */
-        delivery_country: string;
+        readonly delivery_country: string;
         /**
          * Delivery address - country code (two-letter, e.g. EN)
          */
-        delivery_country_code: CountryCode;
+        readonly delivery_country_code: CountryCode;
         /**
          * Value of the "additional field 1" - the seller can store any information here
          */
-        extra_field_1: string;
+        readonly extra_field_1: string;
         /**
          * Value of the "additional field 2" - the seller can store any information here
          */
-        extra_field_2: string;
+        readonly extra_field_2: string;
         /**
          * Object containing order custom extra fields, where key is the extra field ID and value is an extra field content for the given extra field
          * The list of extra fields can be retrieved with the `getOrderReturnExtraFields` method
@@ -506,79 +505,79 @@ export type OrderReturnsCategory = {
          *  "file": "data:4AAQSkZJRgABA[...]" // Base64 encoded binary with limit of 2MB
          * }
          */
-        custom_extra_fields: Record<string, string>;
+        readonly custom_extra_fields: Record<string, string>;
         /**
          * Seller comments
          * Maximum length is 200 characters
          */
-        admin_comments: string;
+        readonly admin_comments: string;
         /**
          * Courier name (if the shipment was created)
          */
-        delivery_package_module: string;
+        readonly delivery_package_module: string;
         /**
          * Shipping number (if the shipment was created)
          */
-        delivery_package_nr: string;
+        readonly delivery_package_nr: string;
         /**
          * Array of order return products
          */
-        products: Array<{
+        readonly products: Array<{
           /**
            * Type of magazine from which the product comes
            *  "db" - BaseLinker internal catalog
            *  "shop" - online store magazine
            *  "warehouse" - connected wholesaler
            */
-          storage: StorageType;
+          readonly storage: StorageType;
           /**
            * Magazine ID from which the product comes
            * It has a value `0` if the product comes from the BaseLinker internal catalog
            */
-          storage_id: number;
+          readonly storage_id: number;
           /**
            * Order return product ID from BaseLinker order manager
            */
-          order_return_product_id: number;
+          readonly order_return_product_id: number;
           /**
            * Product ID in BaseLinker or shop storage
            * Blank if the product ID is not known
            */
-          product_id: number;
+          readonly product_id: number;
           /**
            * Product variant ID
            * Blank if the product variant ID is not known
            */
-          variant_id: number;
+          readonly variant_id: number;
           /**
            * Product name
            */
-          name: string;
+          readonly name: string;
           /**
            * Product SKU number
            */
-          sku: string;
+          readonly sku: string;
           /**
            * Product EAN number
            */
-          ean: string;
+          readonly ean: string;
           /**
            * Product location
            */
-          location: string;
+          readonly location: string;
           /**
            * Product source warehouse ID
            * Applies only to products from BaseLinker internal catalog
            */
-          warehouse_id: number;
+          readonly warehouse_id: number;
           /**
            * Specific product attributes
            */
-          attributes: string;
+          readonly attributes: string;
           /**
            * Single product gross price
            */
-          price_brutto: number;
+          readonly price_brutto: number;
           /**
            * Product VAT tax rate e.g. 23
            * Value should be between 0 and 100 or:
@@ -586,42 +585,42 @@ export type OrderReturnsCategory = {
            *  - -0.02 for NP annotation
            *  - -0.03 for OO VAT reverse charge
            */
-          tax_rate: number;
+          readonly tax_rate: number;
           /**
            * Product quantity
            */
-          quantity: number;
+          readonly quantity: number;
           /**
            * Single product weight
            */
-          weight: number;
+          readonly weight: number;
           /**
            * ID of the bundle that was split to aquire this order product
            * Applies only to bundles from BaseLinker inventory
            * Returns `0` if the product was not aquired from splitting a bundle
            */
-          bundle_id: number;
+          readonly bundle_id: number;
           /**
            * Return item status ID
            */
-          status_id: number;
+          readonly status_id: number;
           /**
            * Return reason ID
            */
-          return_reason_id: number;
+          readonly return_reason_id: number;
         }>;
         /**
          * Bank account number to issue a refund
          */
-        order_return_account_number: string;
+        readonly order_return_account_number: string;
         /**
          * IBAN of the bank account
          */
-        order_return_iban: string;
+        readonly order_return_iban: string;
         /**
          * SWIFT of the bank account
          */
-        order_return_swift: string;
+        readonly order_return_swift: string;
         /**
          * Return fulfillment status
          * Possible values:
@@ -630,7 +629,7 @@ export type OrderReturnsCategory = {
          *  - 2 - Cancelled
          *  - 5 - Accepted
          */
-        fulfillment_status: OrderReturnFulfillmentStatus;
+        readonly fulfillment_status: OrderReturnFulfillmentStatus;
       }>;
     };
   };
@@ -641,23 +640,23 @@ export type OrderReturnsCategory = {
       /**
        * Array of order return statuses
        */
-      statuses: Array<{
+      readonly statuses: Array<{
         /**
          * Order return status ID
          */
-        id: number;
+        readonly id: number;
         /**
          * Order return status name
          */
-        name: string;
+        readonly name: string;
         /**
          * Long status name (displayed to the customer on the order return page)
          */
-        name_for_customer: string;
+        readonly name_for_customer: string;
         /**
          * Order return status color in HEX format
          */
-        color?: string;
+        readonly color?: string;
       }>;
     };
   };
@@ -678,32 +677,32 @@ export type OrderReturnsCategory = {
       /**
        * Array of payment history entries
        */
-      payments: Array<{
+      readonly payments: Array<{
         /**
          * Total amount paid before the given change
          */
-        paid_before: number;
+        readonly paid_before: number;
         /**
          * Total amount paid after the given change
          */
-        paid_after: number;
+        readonly paid_after: number;
         /**
          * Total order price
          */
-        total_price: number;
+        readonly total_price: number;
         /**
          * 3-letter currency symbol (e.g. EUR, PLN, USD)
          */
-        currency: CurrencyCode;
+        readonly currency: CurrencyCode;
         /**
          * External payment ID
          */
-        external_payment_id: string;
+        readonly external_payment_id: string;
         /**
          * Date of change record
          * Unix timestamp
          */
-        date: number;
+        readonly date: number;
       }>;
     };
   };
@@ -884,7 +883,7 @@ export type OrderReturnsCategory = {
       /**
        * Added order return product ID
        */
-      order_return_product_id: number;
+      readonly order_return_product_id: number;
     };
   };
 
@@ -1036,21 +1035,21 @@ export type OrderReturnsCategory = {
    * The method allows you to retrieve a list of order return reasons
    * Values of those fields can be set using the `setOrderReturnFields` method
    */
-  getOrderReturnReasonList: {
+  getOrderReturnReasonsList: {
     params: void;
     response: {
       /**
        * Array of order return reasons
        */
-      return_reasons: Array<{
+      readonly return_reasons: Array<{
         /**
          * Return reason ID
          */
-        return_reason_id: number;
+        readonly return_reason_id: number;
         /**
          * Order return reason name
          */
-        name: string;
+        readonly name: string;
       }>;
     };
   };
@@ -1118,15 +1117,15 @@ export type OrderReturnsCategory = {
       /**
        * Array of order return product statuses
        */
-      order_return_product_statuses: Array<{
+      readonly order_return_product_statuses: Array<{
         /**
          * Order return product status ID
          */
-        status_id: number;
+        readonly status_id: number;
         /**
          * Order return product status name
          */
-        name: string;
+        readonly name: string;
       }>;
     };
   };

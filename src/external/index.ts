@@ -5,6 +5,7 @@ import type { OrderReturnsCategory } from "../internal/order-returns.js";
 import type { WarehouseDocumentsCategory } from "../internal/warehouse-documents.js";
 import type { OrdersCategory } from "../internal/orders.js";
 import type { ProductsCategory } from "../internal/products.js";
+import type { WarehousePurchaseOrdersCategory } from "../internal/warehouse-purchase-orders.js";
 
 export type Flag = 0 | 1;
 
@@ -141,6 +142,8 @@ export type InventoryProductLogType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
 export type WarehouseDocumentType = 0 | 1 | 2 | 3 | 4 | 5;
 
+export type InventoryPurchaseOrderStatus = 0 | 1 | 2 | 3 | 4 | 5;
+
 /* Baselinker Connect */
 
 export type GetConnectIntegrationsResponse =
@@ -229,6 +232,10 @@ export type GetExternalStorageProductsQuantityParams =
   ExternalStoragesCategory["getExternalStorageProductsQuantity"]["params"];
 export type GetExternalStorageProductsQuantityResponse =
   ExternalStoragesCategory["getExternalStorageProductsQuantity"]["response"];
+export type UpdateExternalStorageProductsQuantityParams =
+  ExternalStoragesCategory["updateExternalSotrageProcuctsQuantity"]["params"];
+export type UpdateExternalStorageProductsQuantityResponse =
+  ExternalStoragesCategory["updateExternalSotrageProcuctsQuantity"]["response"];
 
 /* Order Returns */
 
@@ -265,7 +272,7 @@ export type DeleteOrderReturnProductParams =
 export type SetOrderReturnRefundParams =
   OrderReturnsCategory["setOrderReturnRefund"]["params"];
 export type GetOrderReturnReasonListResponse =
-  OrderReturnsCategory["getOrderReturnReasonList"]["response"];
+  OrderReturnsCategory["getOrderReturnReasonsList"]["response"];
 export type SetOrderReturnStatusParams =
   OrderReturnsCategory["setOrderReturnStatus"]["params"];
 export type SetOrderReturnStatusesParams =
@@ -481,3 +488,18 @@ export type GetInventoryDocumentItemsResponse =
   WarehouseDocumentsCategory["getInventoryDocumentItems"]["response"];
 export type GetInventoryDocumentSeriesResponse =
   WarehouseDocumentsCategory["getInventoryDocumentSeries"]["response"];
+
+/* Warehouse Purchase Orders */
+
+export type GetInventoryPurchaseOrdersParams =
+  WarehousePurchaseOrdersCategory["getInventoryPurchaseOrders"]["params"];
+export type GetInventoryPurchaseOrdersResponse =
+  WarehousePurchaseOrdersCategory["getInventoryPurchaseOrders"]["response"];
+export type GetInventoryPurchaseOrderItemsParams =
+  WarehousePurchaseOrdersCategory["getInventoryPurchaseOrderItems"]["params"];
+export type GetInventoryPurchaseOrderItemsResponse =
+  WarehousePurchaseOrdersCategory["getInventoryPurchaseOrderItems"]["response"];
+export type GetInventoryPurchaseOrderSeriesParams =
+  WarehousePurchaseOrdersCategory["getInventoryPurchaseOrderSeries"]["params"];
+export type GetInventoryPurchaseOrderSeriesResponse =
+  WarehousePurchaseOrdersCategory["getInventoryPurchaseOrderSeries"]["response"];

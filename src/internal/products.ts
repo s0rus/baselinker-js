@@ -32,7 +32,7 @@ export type ProductsCategory = {
       /**
        * The ID of added price group
        */
-      price_group_id: number;
+      readonly price_group_id: number;
     };
   };
 
@@ -63,7 +63,7 @@ export type ProductsCategory = {
       /**
        * The ID of updated price group
        */
-      price_group_id: number;
+      readonly price_group_id: number;
     };
   };
 
@@ -89,27 +89,27 @@ export type ProductsCategory = {
       /**
        * An array of available price groups
        */
-      price_groups: Array<{
+      readonly price_groups: Array<{
         /**
          * Price group identifier
          */
-        price_group_id: number;
+        readonly price_group_id: number;
         /**
          * Name of the price group
          */
-        name: string;
+        readonly name: string;
         /**
          * Price group description
          */
-        description: string;
+        readonly description: string;
         /**
          * 3-letter currency symbol e.g. PLN, EUR, USD
          */
-        currency: CurrencyCode;
+        readonly currency: CurrencyCode;
         /**
          * Flag indicating whether the price group is default
          */
-        is_default: boolean;
+        readonly is_default: boolean;
       }>;
     };
   };
@@ -139,7 +139,7 @@ export type ProductsCategory = {
       /**
        * The ID of added warehouse
        */
-      warehouse_id: number;
+      readonly warehouse_id: number;
     };
   };
 
@@ -172,7 +172,7 @@ export type ProductsCategory = {
       /**
        * The ID of updated warehouse
        */
-      warehouse_id: number;
+      readonly warehouse_id: number;
     };
   };
 
@@ -199,7 +199,7 @@ export type ProductsCategory = {
       /**
        * An array of available warehouses
        */
-      warehouses: Array<{
+      readonly warehouses: Array<{
         /**
          * Warehouse type
          * Possible values:
@@ -207,28 +207,28 @@ export type ProductsCategory = {
          *  - "shop"
          *  - "warehouse"
          */
-        warehouse_type: WarehouseType;
+        readonly warehouse_type: WarehouseType;
         /**
          * Warehouse ID
          */
-        warehouse_id: number;
+        readonly warehouse_id: number;
         /**
          * Warehouse name
          */
-        name: string;
+        readonly name: string;
         /**
          * Warehouse description
          */
-        description: string;
+        readonly description: string;
         /**
          * Flag indicating whether manual editing of stocks is permitted
          * A `false` value means that you can only edit your stock through the API
          */
-        stock_edition: boolean;
+        readonly stock_edition: boolean;
         /**
          * Flag indicating whether the warehouse is default
          */
-        is_default: boolean;
+        readonly is_default: boolean;
       }>;
     };
   };
@@ -290,7 +290,7 @@ export type ProductsCategory = {
        * The ID of added inventory
        * The list of inventory IDs can be retrieved using the `getInventories` method
        */
-      inventory_id: number;
+      readonly inventory_id: number;
     };
   };
 
@@ -356,7 +356,7 @@ export type ProductsCategory = {
        * The ID of added inventory
        * The list of inventory IDs can be retrieved using the `getInventories` method
        */
-      inventory_id: number;
+      readonly inventory_id: number;
     };
   };
 
@@ -383,37 +383,37 @@ export type ProductsCategory = {
       /**
        * An array of available inventories
        */
-      inventories: Array<{
+      readonly inventories: Array<{
         /**
          * Inventory ID
          */
-        inventory_id: number;
+        readonly inventory_id: number;
         /**
          * Name of the inventory
          * Maximum length is 100 characters
          */
-        name: string;
+        readonly name: string;
         /**
          * Description of the inventory
          */
-        description: string;
+        readonly description: string;
         /**
          * An array of languages available in the inventory
          */
-        languages: Array<LanguageCode>;
+        readonly languages: Array<LanguageCode>;
         /**
          * Default inventory language
          */
-        default_language: LanguageCode;
+        readonly default_language: LanguageCode;
         /**
          * An array of price groups IDs available in the inventory
          */
-        price_groups: Array<number>;
+        readonly price_groups: Array<number>;
         /**
          * Default price group ID
          * Must be included in the `price_groups` parameter
          */
-        default_price_group: number;
+        readonly default_price_group: number;
         /**
          * An array of warehouse IDs available in the inventory
          * The list of warehouse identifiers can be retrieved using the `getInventoryWarehouses` method
@@ -422,20 +422,20 @@ export type ProductsCategory = {
          * @example
          * "shop_2445"
          */
-        warehouses: Array<WarehouseCode>;
+        readonly warehouses: Array<WarehouseCode>;
         /**
          * Default warehouse ID for the inventory
          * Must be included in the `warehouses` parameter
          */
-        default_warehouse: WarehouseCode;
+        readonly default_warehouse: WarehouseCode;
         /**
          * Flag indicating whether the inventory supports reservations
          */
-        reservations: boolean;
+        readonly reservations: boolean;
         /**
          * Flag indicating whether the inventory is default
          */
-        is_default: boolean;
+        readonly is_default: boolean;
       }>;
     };
   };
@@ -470,7 +470,7 @@ export type ProductsCategory = {
        * This number can be used to update the added category
        * This number is also used in `addProducts` and `deleteCategory` methods
        */
-      category_id: number;
+      readonly category_id: number;
     };
   };
 
@@ -509,7 +509,7 @@ export type ProductsCategory = {
        * This number can be used to update the added category
        * This number is also used in `addProducts` and `deleteCategory` methods
        */
-      category_id: number;
+      readonly category_id: number;
     };
   };
 
@@ -545,20 +545,20 @@ export type ProductsCategory = {
       /**
        * An array of available categories
        */
-      categories: Array<{
+      readonly categories: Array<{
         /**
          * Category ID
          */
-        category_id: number;
+        readonly category_id: number;
         /**
          * Name of the category
          * Maximum length is 200 characters
          */
-        name: string;
+        readonly name: string;
         /**
          * The ID of the parent category
          */
-        parent_id: number;
+        readonly parent_id: number;
       }>;
     };
   };
@@ -572,11 +572,11 @@ export type ProductsCategory = {
       /**
        * An array of available tags
        */
-      tags: Array<{
+      readonly tags: Array<{
         /**
          * Tag name
          */
-        name: string;
+        readonly name: string;
       }>;
     };
   };
@@ -596,7 +596,7 @@ export type ProductsCategory = {
       /**
        * The ID of added manufacturer
        */
-      manufacturer_id: number;
+      readonly manufacturer_id: number;
     };
   };
 
@@ -620,7 +620,7 @@ export type ProductsCategory = {
       /**
        * The ID of added manufacturer
        */
-      manufacturer_id: number;
+      readonly manufacturer_id: number;
     };
   };
 
@@ -647,16 +647,16 @@ export type ProductsCategory = {
       /**
        * An array of available manufacturers
        */
-      manufacturers: Array<{
+      readonly manufacturers: Array<{
         /**
          * Manufacturer ID
          */
-        manufacturer_id: number;
+        readonly manufacturer_id: number;
         /**
          * Manufacturer name
          * Maximum length is 200 characters
          */
-        name: string;
+        readonly name: string;
       }>;
     };
   };
@@ -670,33 +670,33 @@ export type ProductsCategory = {
       /**
        * An array of available extra fields
        */
-      extra_fields: Array<{
+      readonly extra_fields: Array<{
         /**
          * Extra field ID
          */
-        extra_field_id: number;
+        readonly extra_field_id: number;
         /**
          * Extra field name
          * Maximum length is 100 characters
          */
-        name: string;
+        readonly name: string;
         /**
          * Kind of additional field
          * Value `0` indicates a short field which is maximum of 200 characters
          * Value `1` indicates a long field which does not have a limit
          * The value can be overwritten for specific integrations e.g. marketplace
          */
-        kind: Flag | unknown;
+        readonly kind: Flag | unknown;
         /**
          * Type of additional field
          * Available values are `text`, `number`, `select`, `checkbox`, `radio`, `date`, `file`
          */
-        editor_type: FieldType;
+        readonly editor_type: FieldType;
         /**
          * An array of values available for a given additional field
          * This field applies only to `select`, `checkbox` and `radio` field types
          */
-        options?: Array<string>;
+        readonly options?: Array<string>;
       }>;
     };
   };
@@ -717,15 +717,15 @@ export type ProductsCategory = {
       /**
        * An array of integrations, where the code of the integration is the key.
        */
-      integrations: Array<{
+      readonly integrations: Array<{
         /**
          * An array of two-letter codes for the languages supported by the integration, e.g. `["PL", "EN"]`
          */
-        langs: Array<LanguageCode>;
+        readonly langs: Array<LanguageCode>;
         /**
          * An array of accounts for the integration, where the key is the account ID and the value is the account name
          */
-        accounts: Record<string, string>;
+        readonly accounts: Record<string, string>;
       }>;
     };
   };
@@ -741,12 +741,11 @@ export type ProductsCategory = {
        */
       inventory_id: number;
     };
-
     response: {
       /**
        * An object containing product text fields, where key is the code of the text field and value is the text field name
        */
-      text_field_keys: Record<string, string>;
+      readonly text_field_keys: Record<string, string>;
     };
   };
 
@@ -945,13 +944,13 @@ export type ProductsCategory = {
       /**
        * The ID of added product
        */
-      product_id: number;
+      readonly product_id: number;
       // TODO: Better warnings types (?)
       /**
        * Object containing notes on adding a product (e.g. image errors or others that do not interrupt the request)
        * Each field informs about a seperate error
        */
-      warnings?: Record<string, string>;
+      readonly warnings?: Record<string, string>;
     };
   };
 
@@ -1159,13 +1158,13 @@ export type ProductsCategory = {
       /**
        * The ID of updated product
        */
-      product_id: number;
+      readonly product_id: number;
       // TODO: Better warnings types (?)
       /**
        * Object containing notes on updating a product (e.g. image errors or others that do not interrupt the request)
        * Each field informs about a seperate error
        */
-      warnings?: Record<string, string>;
+      readonly warnings?: Record<string, string>;
     };
   };
 
@@ -1201,30 +1200,52 @@ export type ProductsCategory = {
        * Only available for inventories with purchase cost calculations system different than AVCO
        */
       include_erp_units?: boolean;
+      /**
+       * Flag indicating whether the WMS units should be included in the response
+       * Only available for inventories with enabled advanced warehouse management system
+       */
+      include_wms_units?: boolean;
+      /**
+       * Flag indicating whether the additional EANs should be included in the response
+       */
+      include_additional_eans?: boolean;
     };
     response: {
       /**
        * Object containing product data, where key is the product ID and value is an object containing product data
        */
-      products: Record<
+      readonly products: Record<
         string,
         {
           /**
            * Flag indicating whether the product is part of a bundle
            */
-          is_bundle: boolean;
+          readonly is_bundle: boolean;
           /**
            * Product EAN number
            */
-          ean: string;
+          readonly ean: string;
+          /**
+           * Array of additional EAN numbers
+           */
+          readonly ean_additional?: Array<{
+            /**
+             * EAN number
+             */
+            ean: string;
+            /**
+             * Quantity of product with given EAN number
+             */
+            quantity: number;
+          }>;
           /**
            * Product SKU number
            */
-          sku: string;
+          readonly sku: string;
           /**
            * Array of product tag names
            */
-          tags: Array<string>;
+          readonly tags: Array<string>;
           /**
            * Product VAT tax rate e.g. 23
            * Value should be between 0 and 100 or:
@@ -1232,54 +1253,54 @@ export type ProductsCategory = {
            *  - -0.02 for NP annotation
            *  - -0.03 for OO VAT reverse charge
            */
-          tax_rate: number;
+          readonly tax_rate: number;
           /**
            * Product weight in kilograms
            */
-          weight: number;
+          readonly weight: number;
           /**
            * Product height
            */
-          height: number;
+          readonly height: number;
           /**
            * Product width
            */
-          width: number;
+          readonly width: number;
           /**
            * Product length
            */
-          length: number;
+          readonly length: number;
           /**
            * Product star type
            * It takes values from 0 to 5
            * 0 means no starring
            */
-          star: number;
+          readonly star: number;
           /**
            * Product category ID
            * The list of category IDs can be retrieved using the `getInventoryCategories` method
            */
-          category_id: number;
+          readonly category_id: number;
           /**
            * Product manufacturer ID
            * The list of manufacturer IDs can be retrieved using the `getInventoryManufacturers` method
            */
-          manufacturer_id: number;
+          readonly manufacturer_id: number;
           /**
            * Object containing product prices, where key is the price group ID and value is a product gross price for a given price group
            * The list of price groups can be retrieved using the `getInventoryPriceGroups` method
            */
-          prices: Record<string, number>;
+          readonly prices: Record<string, number>;
           /**
            * Object containing product stocks, where key is the warehouse ID and value is a product stock for a given warehouse
            * The list of warehouse IDs can be retrieved using the `getInventoryWarehouses` method
            */
-          stock: Record<WarehouseCode, number>;
+          readonly stock: Record<WarehouseCode, number>;
           /**
            * Object containing product locations, where key is the warehouse ID and value is a product location for a given warehouse
            * The list of warehouse IDs can be retrieved using the `getInventoryWarehouses` method
            */
-          locations: Record<WarehouseCode, string>;
+          readonly locations: Record<WarehouseCode, string>;
           // TODO: Better text_fields types (?)
           /**
            * Object containing field text values (names, descriptions, etc.) of a product, where key is the field text ID and value is the field value
@@ -1320,90 +1341,121 @@ export type ProductsCategory = {
            *   "file": "data:4AAQSkZJRgABA[...]" // binary file body limited to 2MB
            *  }
            */
-          text_fields: Record<string, string | Record<string, string>>;
+          readonly text_fields: Record<string, string | Record<string, string>>;
           /**
            * Product average cost in the main currency of the account
            */
-          average_cost: number;
+          readonly average_cost: number;
           /**
            * Product landed cost in the main currency of the account
            */
-          average_landed_cost: number;
+          readonly average_landed_cost: number;
           /**
            * Object containing product images (maximum of 16), where key is the photo position in the gallery (numbering from 0 to 15) and value is the photo URL
            */
-          images: Record<string, string>;
+          readonly images: Record<string, string>;
           /**
            * Object containing product links to external warehouses, where key is the warehouse ID
            * the list of warehouse IDs can be retrieved using the `getStorageList` method
            */
-          links: Record<
+          readonly links: Record<
             WarehouseCode,
             {
               /**
                * Product ID in external warehouse
                */
-              product_id: number;
+              readonly product_id: number;
               /**
                * Variant ID in external warehouse
                * When linked to the main product, the value `0` is returned
                */
-              variant_id: number;
+              readonly variant_id: number;
             }
           >;
           /**
            * Object containing information about variants of the product, where key is the variant ID and value is an object containing variant data
            */
-          variants: Record<
+          readonly variants: Record<
             string,
             {
               /**
                * Variant name
                */
-              name: string;
+              readonly name: string;
               /**
                * Variant SKU number
                */
-              sku: string;
+              readonly sku: string;
               /**
                * Variant EAN number
                */
-              ean: string;
+              readonly ean: string;
               /**
                * Object containing product prices, where key is the price group ID and value is a product gross price for a given price group
                * The list of price groups can be retrieved using the `getInventoryPriceGroups` method
                */
-              prices: Record<string, number>;
+              readonly prices: Record<string, number>;
               /**
                * Object containing product stocks, where key is the warehouse ID and value is a product stock for a given warehouse
                * The list of warehouse IDs can be retrieved using the `getInventoryWarehouses` method
                */
-              stock: Record<WarehouseCode, number>;
+              readonly stock: Record<WarehouseCode, number>;
               /**
                * Object containing product locations, where key is the warehouse ID and value is a product location for a given warehouse
                * The list of warehouse IDs can be retrieved using the `getInventoryWarehouses` method
                */
-              locations: Record<WarehouseCode, string>;
+              readonly locations: Record<WarehouseCode, string>;
             }
           >;
           /**
            * Object containing products stock ERP units, where key is the warehouse ID and value is an object with unit data in given warehouse
+           * The list of warehouse IDs can be retrieved using the `getInventoryWarehouses` method
            */
-          stock_erp_units: Record<
+          readonly stock_erp_units?: Record<
             WarehouseCode,
             {
               /**
                * Unit quantity
                */
-              quantity: number;
+              readonly quantity: number;
               /**
                * Unit purchase cost
                */
-              purchase_cost: number;
+              readonly purchase_cost: number;
               /**
                * Unit expiry date
                */
-              expiry_date: string;
+              readonly expiry_date: string;
+            }
+          >;
+          /**
+           * Object containing products stock WMS units, where key is the warehouse ID and value is an object with unit data in given warehouse
+           * The list of warehouse IDs can be retrieved using the `getInventoryWarehouses` method
+           */
+          readonly stock_wms_units?: Record<
+            WarehouseCode,
+            {
+              /**
+               * Quantity of given WMS unit
+               */
+              readonly quantity: number;
+              /**
+               * Location of given WMS unit
+               */
+              readonly location: string;
+              /**
+               * Expiry date of given WMS unit
+               * Date format YYYY-MM-DD
+               */
+              readonly expiry_date: string;
+              /**
+               * Batch of given WMS unit
+               */
+              readonly bacth: string;
+              /**
+               * Serial number of given WMS unit
+               */
+              readonly serial_no: string;
             }
           >;
         }
@@ -1472,35 +1524,35 @@ export type ProductsCategory = {
       /**
        * Object containing product data, where key is the product ID and value is an object containing product data
        */
-      products: Record<
+      readonly products: Record<
         string,
         {
           /**
            * Product ID
            */
-          id: number;
+          readonly id: number;
           /**
            * Product EAN number
            */
-          ean: string;
+          readonly ean: string;
           /**
            * Product SKU number
            */
-          sku: string;
+          readonly sku: string;
           /**
            * Product name
            */
-          name: string;
+          readonly name: string;
           /**
            * Object containing product prices, where key is the price group ID and value is a product gross price for a given price group
            * The list of price groups can be retrieved using the `getInventoryPriceGroups` method
            */
-          prices: Record<string, number>;
+          readonly prices: Record<string, number>;
           /**
            * Object containing product stocks, where key is the warehouse ID and value is a product stock for a given warehouse
            * The list of warehouse IDs can be retrieved using the `getInventoryWarehouses` method
            */
-          stock: Record<WarehouseCode, number>;
+          readonly stock: Record<WarehouseCode, number>;
         }
       >;
     };
@@ -1526,33 +1578,30 @@ export type ProductsCategory = {
       /**
        * Object containing product stocks, where key is the product ID and value is product stock data
        */
-      products: Record<
+      readonly products: Record<
         string,
         {
           /**
            * Product ID
            */
-          product_id: string;
-          /**
-           *
-           */
+          readonly product_id: number;
           /**
            * Object containing product stocks, where key is the warehouse ID and value is a product stock for a given warehouse
            * The list of warehouse IDs can be retrieved using the `getInventoryWarehouses` method
            */
-          stock: Record<WarehouseCode, number>;
+          readonly stock: Record<WarehouseCode, number>;
           /**
            * Object containing product reservations, where key is the warehouse ID and value is a product reservation for a given warehouse
            * The list of warehouse IDs can be retrieved using the `getInventoryWarehouses` method
            *
            * Only returned for inventories with reservations enabled
            */
-          reservations?: Record<WarehouseCode, number>;
+          readonly reservations?: Record<WarehouseCode, number>;
           /**
            * Object containing variants stocks, where key is the variant ID
            * Value is another object where key is the warehouse ID and value is a stock for a given warehouse
            */
-          variants: Record<string, Record<WarehouseCode, number>>;
+          readonly variants: Record<string, Record<WarehouseCode, number>>;
         }
       >;
     };
@@ -1582,13 +1631,13 @@ export type ProductsCategory = {
       /**
        * Number of updated products
        */
-      counter: number;
+      readonly counter: number;
       /**
        * Object containing warnings for product updates
        * Key of each element is the product identifier, value is the update error message
        * Only keys containing errors are included in the response
        */
-      warnings?: Record<string, string>;
+      readonly warnings?: Record<string, string>;
     };
   };
 
@@ -1612,19 +1661,19 @@ export type ProductsCategory = {
       /**
        * Object containing product prices, where key is the product ID and value is product price data
        */
-      products: Record<
+      readonly products: Record<
         string,
         {
           /**
            * Object containing product prices, where key is the price group ID and value is a product gross price for a given price group
            * The list of price groups can be retrieved using the `getInventoryPriceGroups` method
            */
-          prices: Record<string, number>;
+          readonly prices: Record<string, number>;
           /**
            * Object containing variants prices, where key is the variant ID
            * Value is another object where key is the price group ID and value is the product gross price for a given price group
            */
-          variants: Record<string, Record<string, number>>;
+          readonly variants: Record<string, Record<string, number>>;
         }
       >;
     };
@@ -1654,13 +1703,13 @@ export type ProductsCategory = {
       /**
        * Number of updated products
        */
-      counter: number;
+      readonly counter: number;
       /**
        * Object containing warnings for product updates
        * Key of each element is the product identifier, value is the update error message
        * Only keys containing errors are included in the response
        */
-      warnings?: Record<string, string>;
+      readonly warnings?: Record<string, string>;
     };
   };
 
@@ -1714,17 +1763,17 @@ export type ProductsCategory = {
       /**
        * An array of product logs grouped by date and profile executing the change
        */
-      logs: Array<{
+      readonly logs: Array<{
         /**
          * Name of the profile executing the change
          */
-        profile: string;
+        readonly profile: string;
         /**
          * Date of the log
          */
-        date: number;
+        readonly date: number;
         // TODO: Log types
-        entries: unknown;
+        readonly entries: unknown;
       }>;
     };
   };

@@ -95,15 +95,15 @@ export type CourierShipmentsCategory = {
       /**
        * Shipment ID
        */
-      package_id: number;
+      readonly package_id: number;
       /**
        * Shipping number (consignment number)
        */
-      package_number: string;
+      readonly package_number: string;
       /**
        * Courier internal number
        */
-      courier_inner_number: string;
+      readonly courier_inner_number: string;
     };
   };
 
@@ -141,11 +141,11 @@ export type CourierShipmentsCategory = {
       /**
        * Shipment ID
        */
-      package_id: number;
+      readonly package_id: number;
       /**
        * Shipping number (consignment number)
        */
-      package_number: string;
+      readonly package_number: string;
     };
   };
 
@@ -158,15 +158,15 @@ export type CourierShipmentsCategory = {
       /**
        * Array of couriers
        */
-      couriers: Array<{
+      readonly couriers: Array<{
         /**
          * Courier code
          */
-        code: string;
+        readonly code: string;
         /**
          * Courier name
          */
-        name: string;
+        readonly name: string;
       }>;
     };
   };
@@ -186,64 +186,64 @@ export type CourierShipmentsCategory = {
       /**
        * Flag indicating whether the courier supports multiple shipments
        */
-      multi_packages: Flag;
+      readonly multi_packages: Flag;
       /**
        * Array of fields to create a shipment
        */
-      fields: Array<{
+      readonly fields: Array<{
         /**
          * Field ID
          */
-        id: string;
+        readonly id: string;
         /**
          * Field name
          */
-        name: string;
+        readonly name: string;
         /**
          * Field type
          */
-        type: CourierFieldType;
+        readonly type: CourierFieldType;
         /**
          * Field description
          */
-        desc?: string;
+        readonly desc?: string;
         /**
          * Object containing available options for select and checkbox fields
          * Key is the option ID, and value is the option name
          */
-        options?: Record<string, string>;
+        readonly options?: Record<string, string>;
         /**
          * Object with additional fields that are available for the selected option
          * Key for each element is ID of the option for which additional fields are to be available
          * Value is the array of fields available for the selected option
          */
-        show_field?: Record<string, Array<string>>;
+        readonly show_field?: Record<string, Array<string>>;
         /**
          * Default field value
          */
-        value?: string;
+        readonly value?: string;
         /**
          * Field function
          * If not blank, it means that the field has dynamic options and in order to download the current options for a particular order, you should retrieve those using the `getCourierServices` method
          */
-        function?: string;
+        readonly function?: string;
       }>;
       /**
        * Array of fields to create packages
        */
-      package_fields: Array<{
+      readonly package_fields: Array<{
         /**
          * Field ID
          */
-        id: string;
+        readonly id: string;
         /**
          * Field name
          */
-        name: string;
+        readonly name: string;
         /**
          * Field type
          */
-        type: CourierPackageFieldType;
+        readonly type: CourierPackageFieldType;
       }>;
     };
   };
@@ -341,7 +341,7 @@ export type CourierShipmentsCategory = {
        * Object with available services
        * Key is the service ID, and value is the service name
        */
-      services: Record<string, string>;
+      readonly services: Record<string, string>;
     };
   };
 
@@ -360,15 +360,15 @@ export type CourierShipmentsCategory = {
       /**
        * Array of courier accounts
        */
-      accounts: Array<{
+      readonly accounts: Array<{
         /**
          * Account ID
          */
-        id: number;
+        readonly id: number;
         /**
          * Account name
          */
-        name: string;
+        readonly name: string;
       }>;
     };
   };
@@ -398,11 +398,18 @@ export type CourierShipmentsCategory = {
       /**
        * Label file extension
        */
-      extension: "pdf" | "html" | "gif" | "png" | "epl" | "zpl" | "dpl";
+      readonly extension:
+        | "pdf"
+        | "html"
+        | "gif"
+        | "png"
+        | "epl"
+        | "zpl"
+        | "dpl";
       /**
        * Label binary encoded in Base64
        */
-      label: string;
+      readonly label: string;
     };
   };
 
@@ -435,11 +442,11 @@ export type CourierShipmentsCategory = {
       /**
        * Protocol file extension
        */
-      extension: "pdf" | "html";
+      readonly extension: "pdf" | "html";
       /**
        * Protocol binary encoded in Base64
        */
-      protocol: string;
+      readonly protocol: string;
     };
   };
 
@@ -457,36 +464,36 @@ export type CourierShipmentsCategory = {
       /**
        * Array of shipments
        */
-      packages: Array<{
+      readonly packages: Array<{
         /**
          * Shipment ID
          */
-        package_id: number;
+        readonly package_id: number;
         /**
          * Shipping number (consignment number)
          */
-        courier_package_nr: string;
+        readonly courier_package_nr: string;
         /**
          * Courier internal number
          */
-        courier_inner_number: string;
+        readonly courier_inner_number: string;
         /**
          * Courier code
          */
-        courier_code: string;
+        readonly courier_code: string;
         /**
          * Additional courier name
          * Applicable to brokes
          */
-        courier_other_name?: string;
+        readonly courier_other_name?: string;
         /**
          * Last tracking status date
          */
-        tracking_status_date: number;
+        readonly tracking_status_date: number;
         /**
          * Number of days for a shipment to be delivered from status `Shipped` to status `Delivered`, excluding weekends
          */
-        tracking_delivery_days: number;
+        readonly tracking_delivery_days: number;
         /**
          * Tracking status code
          * Possible values:
@@ -503,7 +510,7 @@ export type CourierShipmentsCategory = {
          *  - 10 - Cancelled
          *  - 11 - On the way
          */
-        tracking_status: CourierTrackingStatus;
+        readonly tracking_status: CourierTrackingStatus;
         /**
          * Package type code
          * Possible values:
@@ -512,15 +519,15 @@ export type CourierShipmentsCategory = {
          *  - 2 - Sent at point
          *  - 3 - Return shipment, sent at point
          */
-        package_type: CourierPackageType;
+        readonly package_type: CourierPackageType;
         /**
          * Shipment tracking URL
          */
-        tracking_url: string;
+        readonly tracking_url: string;
         /**
          * Flag indicating whether the shipment is a return shipment
          */
-        is_return: boolean;
+        readonly is_return: boolean;
       }>;
     };
   };
@@ -541,17 +548,17 @@ export type CourierShipmentsCategory = {
        * Object with shipment status history
        * Key is the parcel ID, and value is an array of status history entries
        */
-      packages_history: Record<
+      readonly packages_history: Record<
         string,
         Array<{
           /**
            * Status date
            */
-          tracking_status_date: number;
+          readonly tracking_status_date: number;
           /**
            * Original status code in the courier system
            */
-          courier_status_code: string;
+          readonly courier_status_code: string;
           /**
            * Tracking status code
            * Possible values:
@@ -570,7 +577,7 @@ export type CourierShipmentsCategory = {
            *  - 12 - Exception (sorting error, other event, complaint)
            *  - 13 - Transferred abroad
            */
-          tracking_status: CourierTrackingHistoryStatus;
+          readonly tracking_status: CourierTrackingHistoryStatus;
         }>
       >;
     };
@@ -591,12 +598,12 @@ export type CourierShipmentsCategory = {
        * Shipment ID
        * Optional if the `package_number` is provided
        */
-      package_id: number;
+      package_id?: number;
       /**
        * Shipping number (consignment number)
        * Optional if the `package_id` is provided
        */
-      package_number: string;
+      package_number?: string;
       /**
        * Flag indicating whether the package should be forced to be removed form the BaseLinker database in the case of an error with the removal of the shipment in the courier API
        */
@@ -667,7 +674,7 @@ export type CourierShipmentsCategory = {
       /**
        * Parcel pickup number provided by the courier API
        */
-      pickup_number: string;
+      readonly pickup_number: string;
     };
   };
 
@@ -686,32 +693,32 @@ export type CourierShipmentsCategory = {
       /**
        * Array of additional fields to request parcel pickup
        */
-      fields: Array<{
+      readonly fields: Array<{
         /**
          * Field ID
          */
-        id: string;
+        readonly id: string;
         /**
          * Field name
          */
-        name: string;
+        readonly name: string;
         /**
          * Field type
          */
-        type: CourierFieldType;
+        readonly type: CourierFieldType;
         /**
          * Field description
          */
-        desc?: string;
+        readonly desc?: string;
         /**
          * Object containing available options for select and checkbox fields
          * Key is the option ID, and value is the option name
          */
-        options?: Record<string, string>;
+        readonly options?: Record<string, string>;
         /**
          * Default field value
          */
-        value?: string;
+        readonly value?: string;
       }>;
     };
   };

@@ -57,7 +57,7 @@ try {
 
 Entire structure and types of the client are based on the [BaseLinker API documentation](https://api.baselinker.com/).
 
-> Note: The client is updated up to **2025-02-19** version of the API.
+> Note: The client is updated up to **2025-03-06** version of the API.
 >
 > Please, verify if the client is up to date in the documentation.
 >

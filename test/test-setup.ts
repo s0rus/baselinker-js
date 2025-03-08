@@ -1,10 +1,14 @@
-import { mock, afterEach } from "bun:test";
+import { mock, beforeEach, afterAll } from "bun:test";
 
 export const mockFetch = mock();
 
 global.fetch = mockFetch;
 mock.module("node-fetch", () => mockFetch);
 
-afterEach(() => {
+beforeEach(() => {
   mockFetch.mockReset();
+});
+
+afterAll(() => {
+  mockFetch.mockRestore();
 });

@@ -12,40 +12,40 @@ export type BaselinkerConnectCategory = {
        *  - `own_integrations`: integration created on this account
        *  - `connected_integrations`: integrations to which this account has connected
        */
-      integrations: {
+      readonly integrations: {
         /**
          * Integrations created on this account
          */
-        own_integrations: Array<{
+        readonly own_integrations: Array<{
           /**
            * Integration ID
            */
-          connect_integration_id: number;
+          readonly connect_integration_id: number;
           /**
            * Integration name
            */
-          name: string;
+          readonly name: string;
           /**
            * Integration options
            */
-          settings: Array<unknown>;
+          readonly settings: Array<unknown>;
         }>;
         /**
          * Integrations to which this account has connected
          */
-        connected_integrations: Array<{
+        readonly connected_integrations: Array<{
           /**
            * Integration ID
            */
-          connect_integration_id: number;
+          readonly connect_integration_id: number;
           /**
            * Integration name
            */
-          name: string;
+          readonly name: string;
           /**
            * Integration options
            */
-          settings: Array<unknown>;
+          readonly settings: Array<unknown>;
         }>;
       };
     };
@@ -65,25 +65,25 @@ export type BaselinkerConnectCategory = {
       /**
        * Array of BaseLinker Connect contractors for selected BaseLinker Connect integration
        */
-      contractors: Record<
+      readonly contractors: Record<
         string,
         {
           /**
            * Contractor ID
            */
-          connect_contractor_id: number;
+          readonly connect_contractor_id: number;
           /**
            * Contractor name
            */
-          name: string;
+          readonly name: string;
           /**
            * Contractor credit summary data
            */
-          credit_data?: Array<unknown>;
+          readonly credit_data?: Array<unknown>;
           /**
            * Contractor options
            */
-          settings: Array<unknown>;
+          readonly settings: Array<unknown>;
         }
       >;
     };
@@ -103,42 +103,42 @@ export type BaselinkerConnectCategory = {
       /**
        * Array of BaseLinker Connect contractor trade credit data
        */
-      credit_data: Array<{
+      readonly credit_data: Array<{
         /**
          * Entry ID
          */
-        credit_entry_id: number;
+        readonly credit_entry_id: number;
         /**
          * Entry add date
          * Unix timestamp
          */
-        date_add: number;
+        readonly date_add: number;
         /**
          * Entry description
          */
-        description: string;
+        readonly description: string;
         /**
          * Entry three-letter currency symbol (e.g. EUR, PLN, USD)
          */
-        currency: CurrencyCode;
+        readonly currency: CurrencyCode;
         /**
          * Entry type
          * Possible values:
          *  - "charge"
          *  - "payment"
          */
-        type: "charge" | "payment";
+        readonly type: "charge" | "payment";
         /**
          * Entry amount
          */
-        amount: number;
+        readonly amount: number;
         /**
          * Entry status
          * Possible values:
          *  - 0 - waiting
          *  - 1 - active
          */
-        is_accepted: Flag;
+        readonly is_accepted: Flag;
       }>;
     };
   };

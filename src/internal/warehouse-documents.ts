@@ -48,15 +48,15 @@ export type WarehouseDocumentsCategory = {
        */
       page?: number;
     };
-    response: {
+    readonly response: {
       /**
        * Array of inventory documents
        */
-      documents: Array<{
+      readonly documents: Array<{
         /**
          * Document ID
          */
-        document_id: number;
+        readonly document_id: number;
         /**
          * Document type
          * Available values are:
@@ -67,61 +67,61 @@ export type WarehouseDocumentsCategory = {
          *  - 4 - IT (Internal Transfer)
          *  - 5 - OB (Opening Balance)
          */
-        document_type: WarehouseDocumentType;
+        readonly document_type: WarehouseDocumentType;
         /**
          * Document status
          * Available values are:
          *  - 0 - Draft
          *  - 1 - Confirmed
          */
-        document_status: Flag;
+        readonly document_status: Flag;
         /**
          * Document direction
          * Available values are:
          *  - 0 - Incoming
          *  - 1 - Outgoing
          */
-        direction?: Flag;
+        readonly direction?: Flag;
         /**
          * ID of the document series
          */
-        document_series_id?: number;
+        readonly document_series_id?: number;
         /**
          * Full document number
          */
-        full_number: string;
+        readonly full_number: string;
         /**
          * Date of document creation
          * Unix timestamp format
          */
-        date_created: number;
+        readonly date_created: number;
         /**
          * Date of document confirmation
          * Unix timestamp format
          *
          * `0` is returned if the document is not confirmed
          */
-        date_confirmed: number;
+        readonly date_confirmed: number;
         /**
          * Main warehouse ID used for the document
          */
-        warehouse_id: number;
+        readonly warehouse_id: number;
         /**
          * Second (destination) warehouse ID for transfers
          */
-        warehouse_id2?: number;
+        readonly warehouse_id2?: number;
         /**
          * Number of items in the document
          */
-        items_count: number;
+        readonly items_count: number;
         /**
          * Total quantity of items in the document
          */
-        total_quantity: number;
+        readonly total_quantity: number;
         /**
          * Total price of items in the document
          */
-        total_price: number;
+        readonly total_price: number;
       }>;
     };
   };
@@ -145,68 +145,68 @@ export type WarehouseDocumentsCategory = {
       /**
        * Array of document items
        */
-      items: Array<{
+      readonly items: Array<{
         /**
          * ID of document to which the item belongs
          */
-        document_id: number;
+        readonly document_id: number;
         /**
          * ID of the document item
          */
-        item_id: number;
+        readonly item_id: number;
         /**
          * Line item number within the document
          */
-        position: number;
+        readonly position: number;
         /**
          * Product ID
          */
-        product_id: number;
+        readonly product_id: number;
         /**
          * Product name
          */
-        product_name: string;
+        readonly product_name: string;
         /**
          * Product EAN number
          */
-        product_ean: string;
+        readonly product_ean: string;
         /**
          * Product SKU number
          */
-        product_sku: string;
+        readonly product_sku: string;
         /**
          * Quantity of the line item in the document
          */
-        quantity: number;
+        readonly quantity: number;
         /**
          * Unit price
          */
-        price: number;
+        readonly price: number;
         /**
          * Total value of the item
          */
-        total_price: number;
+        readonly total_price: number;
         /**
          * Inventory ID (if applicable)
          */
-        inventory_id?: number;
+        readonly inventory_id?: number;
         /**
          * Location (location column)
          */
-        location_name: string;
+        readonly location_name: string;
         /**
          * Expiry date (if relevant)
          * Date format YYYY-MM-DD
          */
-        expiry_date: string;
+        readonly expiry_date: string;
         /**
          * Product batch
          */
-        batch: string;
+        readonly batch: string;
         /**
          * Product serial number
          */
-        serial_no: string;
+        readonly serial_no: string;
       }>;
     };
   };
@@ -221,15 +221,15 @@ export type WarehouseDocumentsCategory = {
       /**
        * Array of document series
        */
-      document_series: Array<{
+      readonly document_series: Array<{
         /**
          * ID of the document series
          */
-        document_series_id: number;
+        readonly document_series_id: number;
         /**
          * Name of the document series
          */
-        name: string;
+        readonly name: string;
         /**
          * Document type
          * Available values are:
@@ -240,16 +240,16 @@ export type WarehouseDocumentsCategory = {
          *  - 4 - IT (Internal Transfer)
          *  - 5 - OB (Opening Balance)
          */
-        document_type: WarehouseDocumentType;
+        readonly document_type: WarehouseDocumentType;
         /**
          * Warehouse ID
          */
-        warehouse_id: number;
+        readonly warehouse_id: number;
         /**
          * Format for document numbering
          * (e.g "%N/%M/%Y/GR" in the format column)
          */
-        format: string;
+        readonly format: string;
       }>;
     };
   };
