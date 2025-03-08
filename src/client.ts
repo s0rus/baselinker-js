@@ -83,7 +83,7 @@ export function createBaselinkerClient({
 
               if (debug) {
                 console.log(
-                  `Baselinker API Request - Category: ${String(category)}, Method: ${String(method)}, Params:`,
+                  `<- Baselinker API Request | ${String(category)}.${String(method)} | params:`,
                   params,
                 );
               }
@@ -117,9 +117,9 @@ export function createBaselinkerClient({
 
               if (debug) {
                 console.log(
-                  `Baselinker API Response - Category: ${String(
+                  `-> Baselinker API Response | ${String(
                     category,
-                  )}, Method: ${String(method)}, Data:`,
+                  )}.${String(method)} | data:`,
                   data,
                 );
               }
