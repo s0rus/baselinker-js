@@ -491,6 +491,12 @@ export type OrdersCategory = {
        * The list of order source IDs can be retrieved using the `getOrderSources` method
        */
       filter_order_source_id?: number;
+      /**
+       * Flag indicating whether to download orders with commision information
+       * If set to `true`, the response will contain adittional `commision` field
+       * Default value is `false`
+       */
+      with_commision?: boolean;
     };
     response: {
       /**
@@ -739,6 +745,24 @@ export type OrdersCategory = {
          *  0 - not all products are packed
          */
         readonly pack_state: Flag;
+        /**
+         * Commision that the marketplace charges for an order
+         * Only available if `with_commision` flag is set to `true` in the `getOrders` method
+         */
+        readonly commision?: {
+          /**
+           * Net commision amount
+           */
+          net: number;
+          /**
+           * Gross commision amount
+           */
+          gross: number;
+          /**
+           * Currency code (e.g. PLN, EUR, USD) for the commision
+           */
+          currency: CurrencyCode;
+        };
         /**
          * Array of products for the order
          */
